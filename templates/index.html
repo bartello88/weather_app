@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-image: url(static/img/{{weather}}.jpg)">
+<div class="container">
+    <h4>Provide city in english</h4>
+    <form action="city" method="post">
+        <input class="form-control" name="city" type="text">
+        <button type="submit" class="btn btn-outline-primary">Sumbit</button>
+    </form>
+</div>
+{%if city %}
+<div class="city-container">
+    <div class="city-item city-item1">
+        <H1>{{city}}, {{country}}</H1>
+    </div>
+    <div class="city-item city-item2">
+        <h1>{{celciusz}} deg</h1>
+    </div>
+    <div class="city-item city-item3">
+        <h3>Pressure: {{pressure}}</h3>
+        <h3>Sky: {{weather}}</h3>
+        <h3>Info: {{desc}}</h3>
+        <h3>Wind: {{wind}}</h3>
+    </div>
+    <div class="city-item city-item4">
+    </div>
+    <div class="city-item city-item5">
+        <img src="https://www.countryflags.io/{{country}}/shiny/64.png">
+    </div>
+    <div class="city-item city-item6"></div>
+</div>
+{% endif %}
+{% if error %}
+    <div class="wrong">
+        <h1>{{error}}</h1>
+    </div>
+{% endif %}
+
+</body>
+</html>
